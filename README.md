@@ -1,8 +1,8 @@
 # Python_pipeline_Homework3
 
-**Student Name:** [Your Name]
+**Student Name:** Caldarescu Tudor
 **Course:** Advanced Topics in Neural Networks
-**Assignment:** 3 - PyTorch Training Pipeline
+**Homework:** 3 - PyTorch Training Pipeline
 
 ---
 
@@ -26,3 +26,21 @@ The script `train.py` is configurable via command-line arguments. Below are exam
 **1. Basic Run (CIFAR-100 with ResNest26d):**
 ```bash
 python train.py --dataset CIFAR100 --model resnest26d --epochs 50 --batch_size 128 --optimizer AdamW --lr 0.001 --device cuda
+
+
+** Using Pretraining:**
+```bash
+python train.py --dataset CIFAR100 --model resnet26d --pretrained --epochs 20
+
+** Hyperparameter Sweep Example: **
+```bash
+python train.py --exp_name sweep_sgd_lr01 --optimizer SGD --lr 0.01
+```bash
+python train.py --exp_name sweep_adam_lr001 --optimizer Adam --lr 0.001
+
+
+** Runing with Batch Size Scheduling: **
+```bash
+python train.py --batch_schedule "10:256,30:512"
+
+**2. Pipeline Implementation Features
